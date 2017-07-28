@@ -33,5 +33,5 @@
 * Evening retrospective will happen at 5pm to enable folks to catch reasonable buses.
 * Lunch can be flexible time as long as it doesn't become an issue.
 * We will self manage our breaks and lunches as long as it doesn't become an issue.
-* We will plan to hit MVP by Wednesday afternoon and complete the debugging process by the end of the day.
-* The project will be deployed 11am and finished at 12pm on Thursday.
+* We will plan to hit MVP by Wednesday afternoon and complete the debugging process by the end of the day on Thursday.
+* The project will be deployed 11am and finished at 12pm on Friday.
