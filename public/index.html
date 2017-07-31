@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <link rel="stylesheet" href="vendor/styles/normalize.css">
+    <link rel="stylesheet" href="styles/icons.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/layout.css">
+    <link rel="stylesheet" href="styles/modules.css">
+    <link rel="stylesheet" href="styles/state.css">
+    <link rel="stylesheet" href="styles/theme.css">
+    <title>Pop Flick!</title>
+  </head>
+  <header>
+   <h1 class ="mainTitle">
+    Pop Flick!
+   </h1>
+   <nav class="navigation">
+     <i class="icon-menu" onclick=""></i>
+     <ul>
+       <li class='tab'data-content="home"><a href="/" class="menu">Home<a/></li>
+       <li class='tab'data-content="results"><a href="/Results" class="menu">Results<a/></li>
+       <li class='tab'data-content="about"><a href="/about" class="menu">About Us<a/></li>
+     </ul>
+   </nav>
+ </header>
+  <body>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
+    <section id="home" class="tab-content">
+    <section id="results" class="tab-content">
+    <section id="about" class="tab-content">
+    <script src="/vendor/scripts/page.js"></script>
+    <script type="text/javascript" src=/scripts/data.js></script>
+    <script type="text/javascript" src=/scripts/model/movieModel.js></script>
+    <script src="/scripts/view/aboutUsView.js"></script>
+    <script src="/scripts/view/homeView.js"></script>
+    <script src="/scripts/view/resultsView.js"></script>
+    <script src="/scripts/controller/homeController.js"></script>
+    <script src="/scripts/controller/aboutUsController.js"></script>
+    <script src="/scripts/controller/resultsController.js"></script>
+    <script src="/scripts/controller/routes.js"></script>
+  </body>
+</html>
