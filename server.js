@@ -22,7 +22,9 @@ app.use(express.static('./public'));
 
 
 app.get('/search', function(req, res){
-
+  var titles = req.query.titles.split(',');
+  console.log(typeof(titles));
+  console.log(titles);
 
 })
 
