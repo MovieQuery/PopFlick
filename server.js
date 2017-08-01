@@ -23,9 +23,6 @@ app.use(express.static('./public'));
 
 app.get('/search', function(req, res){
   var titles = req.query.titles.split(',');
-  console.log(typeof(titles));
-  console.log(titles);
-
 })
 
 app.get('/movies', function(req, res){
@@ -39,9 +36,9 @@ function TMDbQuery (params, callback) {
     method: 'GET'
   };
 
-request(options, function(err, res, body) {
-  let json = JSON.parse(body);
-  callback(json);
+  request(options, function(err, res, body) {
+    let json = JSON.parse(body);
+    callback(json);
   });
 }
 
@@ -49,11 +46,11 @@ function loadDB() {
   client.query(`
     CREATE TABLE IF NOT EXISTS
     movies (
-      movie_id SERIAL PRIMARY KEY,
-      title VARCHAR(255) UNIQUE NOT NULL,
+      id PRIMARY KEY,
+      title VARCHAR(255) NOT NULL,
       release_date DATE,
-      synopsis TEXT NOT NULL,
-      poster_url VARCHAR(255)
+      overview TEXT NOT NULL,
+      poster_path VARCHAR(255)
     );`
   )
   .then(console.log('movie table created!'))
