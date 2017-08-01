@@ -1,0 +1,29 @@
+{
+  "name": "popflick",
+  "version": "1.0.0",
+  "description": "A very decisive Movie Search Tool",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MovieQuery/PopFlick.git"
+  },
+  "keywords": [
+    "movie"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MovieQuery/PopFlick/issues"
+  },
+  "homepage": "https://github.com/MovieQuery/PopFlick#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "pg": "^7.0.2",
+    "request": "^2.81.0"
+  }
+}
