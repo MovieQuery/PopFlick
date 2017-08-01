@@ -23,6 +23,14 @@ app.use(express.static('./public'));
 
 app.get('/search', function(req, res){
   var titles = req.query.titles.split(',');
+
+  TMDbQuery('search/movie', `query="${titles}&sort_by=popularity.desc"`, function(json){
+    var id = json.results[0].id;
+    console.log(json);
+    console.log(json.results[0]);
+    console.log(id);
+
+  })
 })
 
 app.get('/movies', function(req, res){
@@ -30,9 +38,12 @@ app.get('/movies', function(req, res){
 
 })
 
-function TMDbQuery (params, callback) {
+function TMDbQuery (params, query, callback) {
+  if (query) {
+    query = query + '&';
+  }
   const options = {
-    url : `https://api.themoviedb.org/3/${params}?api_key=${apiKey}`,
+    url : `https://api.themoviedb.org/3/${params}?${query}api_key=${apiKey}`,
     method: 'GET'
   };
 
