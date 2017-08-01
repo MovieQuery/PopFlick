@@ -7,7 +7,7 @@ const request = require('request');
 
 const PORT = process.env.PORT || 3000;
 const apiKey = process.env.API_KEY;
-const conString = process.env.DATABASE_URL;
+const conString = process.env.DATABASE_URL ||  'postgres://localhost:5432/popflick';;
 
 const client = new pg.Client(conString);
 client.connect();
@@ -35,7 +35,7 @@ function loadDB() {
       poster_url VARCHAR(255)
     );`
   )
-  .then(loadMovies)
+  .then(console.log('movie table created!'))
   .catch(console.error);
 
   client.query(`
@@ -46,6 +46,8 @@ function loadDB() {
       movie_id INTEGER NOT NULL REFERENCES movies(movie_id)
     );`
   )
-  .then(loadMovies)
+  .then(console.log('user table created!'))
   .catch(console.error);
 }
+
+loadDB();
