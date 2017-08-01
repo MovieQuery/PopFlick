@@ -22,6 +22,7 @@ app.use(express.static('./public'));
 
 
 app.get('/search', function(req, res){
+  
   var titles = req.query.titles.split(',');
 
   TMDbQuery('search/movie', `query="${titles}&sort_by=popularity.desc"`, function(json){
@@ -30,8 +31,9 @@ app.get('/search', function(req, res){
     // we picked the most popular movie that matched
       var id = json.results[0].id;
 
-      TMDbQuery(`movie/${id}/recommendations`, 'sort_by=popularity.desc', function(json){
-        res.json(json);
+      TMDbQuery(`movie/${id}/recommendations`, '', function(json){
+        var popDesc  = json.results.sort((movieA,movieB) => movieB.popularity-movieA.popularity)
+        res.json(popDesc);
       });
 
     } else {
