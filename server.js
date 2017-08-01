@@ -20,9 +20,30 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('./public'));
 
 
-app.listen(PORT, function() {
-  console.log(`Server started on ${PORT}`);
-});
+
+app.get('/search', function(req, res){
+
+
+})
+
+app.get('/movies', function(req, res){
+
+
+})
+
+function TMDbQuery (params) {
+  const options = {
+    url : `https://api.themoviedb.org/3/${params}?api_key=${apiKey}`,
+    method: 'GET'
+  };
+
+request(options, function(err, res, body) {
+  let json = JSON.parse(body);
+  console.log(json);
+})
+}
+
+TMDbQuery('movie/550/recommendations');
 
 function loadDB() {
   client.query(`
@@ -50,4 +71,6 @@ function loadDB() {
   .catch(console.error);
 }
 
-loadDB();
+app.listen(PORT, function() {
+  console.log(`Server started on ${PORT}`);
+});
