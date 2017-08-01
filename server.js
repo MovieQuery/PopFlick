@@ -25,12 +25,18 @@ app.get('/search', function(req, res){
   var titles = req.query.titles.split(',');
 
   TMDbQuery('search/movie', `query="${titles}&sort_by=popularity.desc"`, function(json){
-    // we picked the most popular movie that matched
-    var id = json.results[0].id;
 
-    TMDbQuery(`movie/${id}/recommendations`, 'sort_by=popularity.desc', function(json){
-      res.json(json);
-    });
+    if (json.results[0]) {
+    // we picked the most popular movie that matched
+      var id = json.results[0].id;
+
+      TMDbQuery(`movie/${id}/recommendations`, 'sort_by=popularity.desc', function(json){
+        res.json(json);
+      });
+
+    } else {
+      res.json([]);
+    }
 
   });
 });
