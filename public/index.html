@@ -3,13 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-    <link rel="stylesheet" href="vendor/styles/normalize.css">
-    <link rel="stylesheet" href="styles/icons.css">
-    <link rel="stylesheet" href="styles/base.css">
-    <link rel="stylesheet" href="styles/layout.css">
-    <link rel="stylesheet" href="styles/modules.css">
-    <link rel="stylesheet" href="styles/state.css">
-    <link rel="stylesheet" href="styles/theme.css">
+
+    <!-- TODO: Add in a normalizer to this index page -->
+    <!-- <link rel="stylesheet" href="vendor/styles/normalize.css"> -->
+
+    <!-- TODO: Add Hamburger menu icon for mobile version -->
+    <!-- <link rel="stylesheet" href="styles/icons.css"> -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/modules.css">
+    <link rel="stylesheet" href="css/state.css">
+    <link rel="stylesheet" href="css/theme.css">
     <title>Pop Flick!</title>
   </head>
   <body>
@@ -26,20 +30,30 @@
         </ul>
       </nav>
     </header>
+    <section id="home" class="tab-content">
+      <section id="results" class="tab-content">
+        <section id="about" class="tab-content">
+    <main>
+      <img src="http://www.pngmart.com/files/3/Popcorn-Transparent-Background.png" alt="Placeholder image">
+      <form>
+        <input class="movieInput" type="text" name="" value="Enter a Movie Title">
+        <input id="submitInput" type="submit" name="" value="Submit">
+      </form>
+    </main>
+
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
-    <section id="home" class="tab-content">
-    <section id="results" class="tab-content">
-    <section id="about" class="tab-content">
-    <script src="/vendor/scripts/page.js"></script>
-    <script type="text/javascript" src=/scripts/data.js></script>
-    <script type="text/javascript" src=/scripts/model/movieModel.js></script>
-    <script src="/scripts/view/aboutUsView.js"></script>
-    <script src="/scripts/view/homeView.js"></script>
-    <script src="/scripts/view/resultsView.js"></script>
-    <script src="/scripts/controller/homeController.js"></script>
-    <script src="/scripts/controller/aboutUsController.js"></script>
-    <script src="/scripts/controller/resultsController.js"></script>
-    <script src="/scripts/controller/routes.js"></script>
+
+    <!-- TODO: Add PageJS library to project! -->
+    <!-- <script src="vendor/scripts/page.js"></script> -->
+    
+    <script src="scripts/models/movieModel.js"></script>
+    <script src="scripts/views/aboutUsView.js"></script>
+    <script src="scripts/views/homeView.js"></script>
+    <script src="scripts/views/resultsView.js"></script>
+    <script src="scripts/controllers/homeController.js"></script>
+    <script src="scripts/controllers/aboutUsController.js"></script>
+    <script src="scripts/controllers/resultsController.js"></script>
+    <script src="scripts/controllers/routes.js"></script>
   </body>
 </html>
