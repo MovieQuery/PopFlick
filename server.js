@@ -22,17 +22,38 @@ app.use(express.static('./public'));
 
 
 app.get('/search', function(req, res){
+  
   var titles = req.query.titles.split(',');
-})
+
+  TMDbQuery('search/movie', `query="${titles}&sort_by=popularity.desc"`, function(json){
+
+    if (json.results[0]) {
+    // we picked the most popular movie that matched
+      var id = json.results[0].id;
+
+      TMDbQuery(`movie/${id}/recommendations`, '', function(json){
+        var popDesc  = json.results.sort((movieA,movieB) => movieB.popularity-movieA.popularity)
+        res.json(popDesc);
+      });
+
+    } else {
+      res.json([]);
+    }
+
+  });
+});
 
 app.get('/movies', function(req, res){
 
 
 })
 
-function TMDbQuery (params, callback) {
+function TMDbQuery (params, query, callback) {
+  if (query) {
+    query = query + '&';
+  }
   const options = {
-    url : `https://api.themoviedb.org/3/${params}?api_key=${apiKey}`,
+    url : `https://api.themoviedb.org/3/${params}?${query}api_key=${apiKey}`,
     method: 'GET'
   };
 
