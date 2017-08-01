@@ -7,7 +7,7 @@ const request = require('request');
 
 const PORT = process.env.PORT || 3000;
 const apiKey = process.env.API_KEY;
-const conString = process.env.DATABASE_URL ||  'postgres://localhost:5432/popflick';;
+const conString = process.env.DATABASE_URL ||  'postgres://localhost:5432/popflick';
 
 const client = new pg.Client(conString);
 client.connect();

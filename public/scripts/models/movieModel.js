@@ -3,30 +3,31 @@
 var app = app || {};
 
 (function(module){
-  var movieModel = {
-    // This is the title inputs from the user
-    movieInputs: [],
-    //This is whats returned from the server
-    movieData: []
-  };
+  // This is the title inputs from the user
+  module.movieInputs = []
+  //This is whats returned from the server
+  module.movieData = []
+
 
   $('#submitInput').on('click', function(event) {
     event.preventDefault();
     //inputed from user in form
-    movieModel.movieInputs = $('.movieInput').val();
-    console.log(movieModel.movieInputs);
+    module.movieInputs = $('.movieInput').val();
+    console.log(module.movieInputs);
+
+    module.movieQuery(); //Insert callback as parameter
 
   });
 
 // ajax call to send inputed titles to server
-  movieModel.prototype.movieQuery = function (callback){
+  module.movieQuery = function (callback){
     $.ajax({
-      url: `/search?titles=${movieModel.movieInputs.join(',')}`,
+      // When multiple input forms are added, put in a .join(',') in the query string below:
+      url: `/search?titles=${module.movieInputs}`,
       method: 'GET',
     })
-    .then(console.log);
+    .then(console.log)
     .then(callback);
   }
 
-  module.movieModel = movieModel;
 })(app);
