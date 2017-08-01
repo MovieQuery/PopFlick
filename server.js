@@ -31,7 +31,7 @@ app.get('/movies', function(req, res){
 
 })
 
-function TMDbQuery (params) {
+function TMDbQuery (params, callback) {
   const options = {
     url : `https://api.themoviedb.org/3/${params}?api_key=${apiKey}`,
     method: 'GET'
@@ -39,11 +39,9 @@ function TMDbQuery (params) {
 
 request(options, function(err, res, body) {
   let json = JSON.parse(body);
-  console.log(json);
-})
+  callback(json);
+  });
 }
-
-TMDbQuery('movie/550/recommendations');
 
 function loadDB() {
   client.query(`
