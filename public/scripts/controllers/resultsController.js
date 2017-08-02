@@ -12,7 +12,11 @@ var app = app || {};
     $('#watchedButton').on('click', function(){
       event.preventDefault();
       app.watchedMovie();
-    //call movie query again for second option
+      app.selectMovie();
+      $('#results').empty();
+      app.displayMovie(app.movieSelection);
+      var button = $('<button>Watched!</button>').attr('id', 'watchedButton');
+      $('#results').append(button);
     })
   }
 

@@ -4,11 +4,15 @@ var app = app || {};
 
 (function(module){
   // This is the title inputs from the user
-  module.movieInputs = []
+  module.movieInputs = [];
   //This is whats returned from the server
-  module.movieData = []
+  module.movieData = [];
   //this is the selected movie
-  module.movieSelection = {}
+  module.movieSelection = {};
+
+  app.selectMovie = function () {
+    app.movieSelection = app.movieData.shift();
+  }
 
   $('#submitInput').on('click', function(event) {
     event.preventDefault();
@@ -33,7 +37,7 @@ var app = app || {};
     .then(function (data) {
       console.log(data);
       module.movieData = data;
-      module.movieSelection = data[0];
+      app.selectMovie();
       callback(module.movieSelection);
     });
   }
