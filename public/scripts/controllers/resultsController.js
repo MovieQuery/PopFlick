@@ -4,20 +4,24 @@ var app = app || {};
 (function(module) {
   const resultsController = {};
 
+  resultsController.cycleResultsView = function() {
+    $('#results').empty();
+    var button = $('<button>Watched!</button>').attr('id', 'watchedButton');
+    $('#results').append(button);
+    app.selectMovie();
+    app.displayMovie(app.movieSelection);
+
+    $('#watchedButton').on('click', function(){
+      event.preventDefault();
+      resultsController.cycleResultsView();
+    })
+  }
+
   resultsController.initResultsView = function() {
     $('.tab-content').hide();
     $('#results').show();
-    var button = $('<button>Watched!</button>').attr('id', 'watchedButton');
-    $('#results').append(button);
-    $('#watchedButton').on('click', function(){
-      event.preventDefault();
-      app.watchedMovie();
-      app.selectMovie();
-      $('#results').empty();
-      app.displayMovie(app.movieSelection);
-      var button = $('<button>Watched!</button>').attr('id', 'watchedButton');
-      $('#results').append(button);
-    })
+
+    resultsController.cycleResultsView();
   }
 
   module.resultsController = resultsController;
