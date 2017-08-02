@@ -13,6 +13,7 @@ var app = app || {};
 
     $('#watchedButton').on('click', function(){
       event.preventDefault();
+      app.watchedMovie();
       resultsController.cycleResultsView();
     })
   }
