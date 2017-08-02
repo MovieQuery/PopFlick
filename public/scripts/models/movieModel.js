@@ -8,7 +8,6 @@ var app = app || {};
   //This is whats returned from the server
   module.movieData = []
 
-
   $('#submitInput').on('click', function(event) {
     event.preventDefault();
     //inputed from user in form
@@ -26,9 +25,7 @@ var app = app || {};
       url: `/search?titles=${module.movieInputs}`,
       method: 'GET',
     })
-    // .then(console.log(data)
     .then(function (data) {
-      // var resultsData = data[0];
       console.log('in movieQuery');
       console.log(data);
       module.movieData = data[0];
