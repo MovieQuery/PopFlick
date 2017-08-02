@@ -42,7 +42,7 @@ var app = app || {};
     $.ajax({
       url:`/movies`,
       method: 'POST',
-      body: module.movieSelection
+      data: module.movieSelection
     })
     .then(function(data){
       console.log(data)
