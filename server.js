@@ -7,7 +7,7 @@ const request = require('request');
 
 const PORT = process.env.PORT || 3000;
 const apiKey = process.env.API_KEY;
-const conString = process.env.DATABASE_URL ||  'postgres://localhost:5432/popflick';
+const conString = process.env.DATABASE_URL || 'postgres://localhost:5432/popflick';
 
 const client = new pg.Client(conString);
 client.connect();
@@ -22,16 +22,16 @@ app.use(express.static('./public'));
 
 
 app.get('/search', function(req, res){
-  
+
   var titles = req.query.titles.split(',');
 
-  TMDbQuery('search/movie', `query="${titles}&sort_by=popularity.desc"`, function(json){
+  tMDbQuery('search/movie', `query="${titles}&sort_by=popularity.desc"`, function(json){
 
     if (json.results[0]) {
     // we picked the most popular movie that matched
       var id = json.results[0].id;
 
-      TMDbQuery(`movie/${id}/recommendations`, '', function(json){
+      tMDbQuery(`movie/${id}/recommendations`, '', function(json){
         var popDesc  = json.results.sort((movieA,movieB) => movieB.popularity-movieA.popularity)
         res.json(popDesc);
       });
@@ -48,7 +48,7 @@ app.get('/movies', function(req, res){
 
 })
 
-function TMDbQuery (params, query, callback) {
+function tMDbQuery (params, query, callback) {
   if (query) {
     query = query + '&';
   }
