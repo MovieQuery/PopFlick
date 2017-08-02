@@ -16,8 +16,7 @@
     <link rel="stylesheet" href="css/theme.css">
     <title>Pop Flick!</title>
     <script type="text/x-handlebars-template" id="resultsTemplate">
-      <h1>{{title}}</h1>
-      <button id="watchedButton" type="button">Mark as watched!</button>
+      <h1 id="title">{{title}}</h1>
       <img src="https://image.tmdb.org/t/p/w500{{poster_path}}">
       <p>{{overview}}</p>
     </script>
@@ -45,9 +44,6 @@
         </form>
       </section>
       <section id="results" class="tab-content">
-        <div>
-
-        </div>
       </section>
       <section id="about" class="tab-content">
       </section>
