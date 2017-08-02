@@ -8,8 +8,7 @@ var app = app || {};
   module.displayMovie = function (data) {
     const template = Handlebars.compile($('#resultsTemplate').html());
     $('#results').append(template(data));
-    var button = $('<button>Watched!</button>').attr('id', 'watchedButton');
-    $('#title').append(button);
+    
   }
 
 })(app);

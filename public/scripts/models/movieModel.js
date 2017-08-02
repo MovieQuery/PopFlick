@@ -7,6 +7,8 @@ var app = app || {};
   module.movieInputs = []
   //This is whats returned from the server
   module.movieData = []
+  //this is the selected movie
+  module.movieSelection = {}
 
 
   $('#submitInput').on('click', function(event) {
@@ -17,13 +19,10 @@ var app = app || {};
 
     module.movieQuery(app.displayMovie); //Insert callback as parameter
     app.resultsController.initResultsView();
-    
+
   });
 
-  // $('.watchedButton').on('click', function(event){
-  //
-  //   //call movie query again for second option
-  // })
+
 
 // ajax call to send inputed titles to server
   module.movieQuery = function (callback){
@@ -34,21 +33,20 @@ var app = app || {};
     })
     .then(function (data) {
       console.log(data);
-      module.movieData = data[0];
-      callback(module.movieData);
+      module.movieData = data;
+      module.movieSelection = data[0];
+      callback(module.movieSelection);
     });
   }
 
-  module.watchedMovie = function (callback) {
+  module.watchedMovie = function () {
     $.ajax({
-      url:`/movies=${module.movieData[0]}`,
+      url:`/movies`,
       method: 'POST',
+      body: module.movieSelection
     })
     .then(function(data){
-      console.log('in POST:');
-      console.log(data);
-      module.movieData = data[1];
-      callback(module.movieData);
+      console.log(data)
     })
   }
 
