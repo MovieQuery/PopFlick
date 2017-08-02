@@ -10,7 +10,6 @@ var app = app || {};
   //this is the selected movie
   module.movieSelection = {}
 
-
   $('#submitInput').on('click', function(event) {
     event.preventDefault();
     //inputed from user in form
