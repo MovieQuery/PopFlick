@@ -22,7 +22,7 @@ app.use(express.static('./public'));
 
 
 app.get('/search', function(req, res){
-  
+  //  Sample client search: /search?titles=avatar,matrix
   var titles = req.query.titles.split(',');
 
   TMDbQuery('search/movie', `query="${titles}&sort_by=popularity.desc"`, function(json){
