@@ -1,12 +1,12 @@
-# MovieQuery
-A very decisive Movie Search Tool
+# PopFlick!
+A very decisive Movie Search Tool. Leave the thinking to our app!
 
 # Project Team Members
 
-* David Broxton
-* Dan Muldrew
-* Tyler Walser
-* Quinn Liu
+* David Broxton -  Father of 2 kids. Wins the award for most modes of transit to commute to class (car, ferry, bus, foot)
+* Dan Muldrew -  Dan is an avid hackathon addict. In his free time he likes to create new music. 
+* Tyler Walser - Microsoft Apprentice through the Apprenti program. New to coding and having a blast!
+* Quinn Liu - an aspiring software developer who is a former biochemist working on renewable energy research under Department of Energy. She is currently learning front-end web development at Code Fellows.
 
 # Our Problem Domain: 
 
@@ -22,3 +22,6 @@ What are the benefits to our solution?
 
 There are services out there that perform this type of function, however, most of the time, they only provide selections for their own network and recommend too many titles (which defeats the purpose of a recommendation in the first place.)The benefit to our solution is you don’t have to think for yourself to decide a movie. Leave the thinking to our app!
 
+# How our project is put together:
+
+The PopFlick Project uses jQuery and Handlebars (HTML templating) to create a single-page application on the client side, along with a mobile-first, responsive UI.  A Node.js server interacts with the Movie Database API to retrieve and parse movie data, and also acts as an API to the PostgreSQL database. Deployed via Heroku, and planned/executed using Agile methodologies during a weeklong sprint.
