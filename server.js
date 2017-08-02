@@ -43,8 +43,21 @@ app.get('/search', function(req, res){
   });
 });
 
-app.get('/movies', function(req, res){
-
+app.post('/movies', function(req, res){
+  console.log(req.body)
+  client.query(
+    `INSERT INTO movies (movie_id, title, release_date, overview, poster_path) VALUES ($1, $2, $3, $4, $5);`
+    , [
+      req.body.id,
+      req.body.title,
+      req.body.release_date,
+      req.body.overview,
+      req.body.poster_path
+    ], function(err) {
+      if (err) console.log(err);
+      res.send('Movie Inserted!');
+    }
+  )
 
 })
 
@@ -67,7 +80,8 @@ function loadDB() {
   client.query(`
     CREATE TABLE IF NOT EXISTS
     movies (
-      id PRIMARY KEY,
+      id SERIAL PRIMARY KEY,
+      movie_id INTEGER,
       title VARCHAR(255) NOT NULL,
       release_date DATE,
       overview TEXT NOT NULL,
@@ -77,17 +91,19 @@ function loadDB() {
   .then(console.log('movie table created!'))
   .catch(console.error);
 
-  client.query(`
-    CREATE TABLE IF NOT EXISTS
-    users (
-      user_id SERIAL PRIMARY KEY,
-      name VARCHAR(255) UNIQUE NOT NULL,
-      movie_id INTEGER NOT NULL REFERENCES movies(movie_id)
-    );`
-  )
-  .then(console.log('user table created!'))
-  .catch(console.error);
+  // client.query(`
+  //   CREATE TABLE IF NOT EXISTS
+  //   users (
+  //     user_id SERIAL PRIMARY KEY,
+  //     name VARCHAR(255) UNIQUE NOT NULL,
+  //     movie_id INTEGER NOT NULL REFERENCES movies(movie_id)
+  //   );`
+  // )
+  // .then(console.log('user table created!'))
+  // .catch(console.error);
 }
+
+loadDB();
 
 app.listen(PORT, function() {
   console.log(`Server started on ${PORT}`);
