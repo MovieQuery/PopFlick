@@ -15,9 +15,8 @@ var app = app || {};
     module.movieInputs = $('.movieInput').val();
     console.log(module.movieInputs);
 
-    module.movieQuery(); //Insert callback as parameter
-    app.displayMovie();
-    app.resultsController.initResultsView
+    module.movieQuery(app.displayMovie); //Insert callback as parameter
+    app.resultsController.initResultsView();
   });
 
 // ajax call to send inputed titles to server
@@ -27,9 +26,14 @@ var app = app || {};
       url: `/search?titles=${module.movieInputs}`,
       method: 'GET',
     })
-    .then(console.log)
+    // .then(console.log(data)
     .then(function (data) {
-      module.movieData = data;
+      // var resultsData = data[0];
+      console.log('in movieQuery');
+      console.log(data);
+      module.movieData = data[0];
+      console.log(data[0]);
+      callback(module.movieData);
     });
   }
 

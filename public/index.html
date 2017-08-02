@@ -17,7 +17,7 @@
     <title>Pop Flick!</title>
     <script type="text/x-handlebars-template" id="resultsTemplate">
       <h1>{{title}}</h1>
-      <img src="https://image.tmdb.org/t/p/w500/{poster_path}"></img>
+      <img src="https://image.tmdb.org/t/p/w500{{poster_path}}">
       <p>{{overview}}</p>
     </script>
   </head>
@@ -50,9 +50,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
 
-    <!-- TODO: Add PageJS library to project! -->
-    <!-- <script src="vendor/scripts/page.js"></script> -->
-
+    <!-- DONE: Add PageJS library to project! -->
     <script src="scripts/models/movieModel.js"></script>
     <script src="scripts/views/aboutUsView.js"></script>
     <script src="scripts/views/homeView.js"></script>
