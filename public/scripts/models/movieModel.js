@@ -16,7 +16,8 @@ var app = app || {};
     console.log(module.movieInputs);
 
     module.movieQuery(); //Insert callback as parameter
-
+    app.displayMovie();
+    app.resultsController.initResultsView
   });
 
 // ajax call to send inputed titles to server
@@ -27,7 +28,9 @@ var app = app || {};
       method: 'GET',
     })
     .then(console.log)
-    .then(callback);
+    .then(function (data) {
+      module.movieData = data;
+    });
   }
 
 })(app);
