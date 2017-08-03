@@ -21,8 +21,6 @@ var app = app || {};
   resultsController.initResultsView = function() {
     $('.tab-content').hide();
     $('#results').show();
-
-    resultsController.cycleResultsView();
   }
 
   module.resultsController = resultsController;
