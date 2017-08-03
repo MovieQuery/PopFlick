@@ -3,14 +3,38 @@
 var app = app || {};
 
 (function(module){
-
   var moviesModel = {};
+
+  moviesModel.loadMovie = function () {
+    var selectedMovieLoad =  localStorage.getItem('selectedMovie');
+    var movieDataLoad = localStorage.getItem('movieData')
+    if (selectedMovieLoad !== null){
+      moviesModel.movieSelection = JSON.parse(selectedMovieLoad);
+      app.resultsView.displayMovie(moviesModel.movieSelection);
+      var button = $('<button>Watched!</button>').attr('id', 'watchedButton');
+      $('#results').append(button);
+      $('#watchedButton').on('click', function(){
+        event.preventDefault();
+        app.moviesModel.watchedMovie();
+        app.resultsController.cycleResultsView();
+      })
+    }
+    if (movieDataLoad !== null){
+      moviesModel.movieData = JSON.parse(movieDataLoad);
+    }
+  };
+
+  moviesModel.saveMovie = function () {
+    localStorage.setItem('selectedMovie', JSON.stringify(moviesModel.movieSelection));
+    localStorage.setItem('movieData', JSON.stringify(moviesModel.movieData));
+  }
   // This is the title inputs from the user
   moviesModel.movieInputs = [];
   //This is whats returned from the server
   moviesModel.movieData = [];
-  //this is the selected movie
-  moviesModel.movieSelection = {};
+
+  moviesModel.loadMovie();
+
 
   moviesModel.selectMovie = function () {
     moviesModel.movieSelection = moviesModel.movieData.shift();
