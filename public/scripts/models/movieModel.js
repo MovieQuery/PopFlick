@@ -22,7 +22,6 @@ var app = app || {};
     app.moviesModel.movieInputs = $('.movieInput').val();
 
     app.moviesModel.movieQuery(app.resultsController.cycleResultsView);
-    // app.resultsController.initResultsView();
   });
 
 // ajax call to send inputed titles to server
@@ -33,9 +32,13 @@ var app = app || {};
     })
     .then(function (data) {
       moviesModel.movieData = data;
-      moviesModel.selectMovie();
-      callback(moviesModel.movieSelection);
-      app.resultsController.initResultsView();
+      if (moviesModel.movieData.length === 0) {
+        app.errorController.displayError();
+      } else {
+        moviesModel.selectMovie();
+        callback(moviesModel.movieSelection);
+        app.resultsController.initResultsView();
+      }
     });
   }
 
