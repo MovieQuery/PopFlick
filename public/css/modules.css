@@ -39,3 +39,8 @@ li.tab {
 li.tab:hover {
   font-size: 105%;
 }
+
+.movieInput:focus::-webkit-input-placeholder
+{
+    color: transparent;
+}
