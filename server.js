@@ -70,11 +70,11 @@ function recursiveListQuery(req, res, list, accumulator) {
 
     var moviesArray = accumulatorValues.map(movieObjArray => {
       var movieObj = movieObjArray[0];
-      var movieObj.recCount = movieObjArray.length;
+      movieObj.recCount = movieObjArray.length;
     })
 
-    var moviesArray  = moviesArray.results.sort((movieA,movieB) => movieB.popularity-movieA.popularity);
-    var moviesArray  = moviesArray.results.sort((movieA,movieB) => movieB.recCount-movieA.recCount);
+    moviesArray = moviesArray.results.sort((movieA,movieB) => movieB.popularity-movieA.popularity);
+    moviesArray = moviesArray.results.sort((movieA,movieB) => movieB.recCount-movieA.recCount);
 
     if (moviesArray[0]) {
       checkAndRemoveWatched(req, res, moviesArray);
