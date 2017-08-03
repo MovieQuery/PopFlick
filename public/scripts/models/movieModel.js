@@ -10,7 +10,14 @@ var app = app || {};
     var movieDataLoad = localStorage.getItem('movieData')
     if (selectedMovieLoad !== null){
       moviesModel.movieSelection = JSON.parse(selectedMovieLoad);
-      app.resultsView.displayMovie(app.moviesModel.movieSelection);
+      app.resultsView.displayMovie(moviesModel.movieSelection);
+      var button = $('<button>Watched!</button>').attr('id', 'watchedButton');
+      $('#results').append(button);
+      $('#watchedButton').on('click', function(){
+        event.preventDefault();
+        app.moviesModel.watchedMovie();
+        app.resultsController.cycleResultsView();
+      })
     }
     if (movieDataLoad !== null){
       moviesModel.movieData = JSON.parse(movieDataLoad);
