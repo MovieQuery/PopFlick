@@ -20,7 +20,7 @@
 }
 
 .navigation:hover ul {
-  display: block;
+  display: inline;
   width: 15%;
   color: white;
   background-color: black;
@@ -37,5 +37,5 @@ li.tab {
   /*color: yellow;*/
 }
 li.tab:hover {
-  font-size: 105%;
+  font-size: 100%;
 }
