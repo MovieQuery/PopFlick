@@ -1,5 +1,6 @@
 # PopFlick!
 A very decisive Movie Search Tool. Leave the thinking to our app!
+### Deployed Version of Our Site: https://popflick.herokuapp.com/
 
 # Project Team Members
 
