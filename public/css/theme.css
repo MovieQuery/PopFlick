@@ -2,7 +2,7 @@ header {
   background-color: red;
 }
 
-main {
+body, main {
   background-color: black;
   color: white;
 }
