@@ -32,11 +32,10 @@ app.get('/search', function(req, res){
       var id = json.results[0].id;
 
       tMDbQuery(`movie/${id}/recommendations`, '', function(json){
+
         var popDesc  = json.results.sort((movieA,movieB) => movieB.popularity-movieA.popularity)
-        // console.log(popDesc.length)
-        console.log(checkAndRemoveWatched(popDesc).length)
-        // res.json(checkAndRemoveWatched(popDesc));
-        res.json(popDesc);
+        checkAndRemoveWatched(req, res, popDesc)
+
       });
 
     } else {
@@ -64,24 +63,13 @@ app.post('/movies', function(req, res){
 
 })
 
-function checkAndRemoveWatched(movies) {
+function checkAndRemoveWatched(req, res, movies) {
   client.query(`SELECT movie_id FROM movies`, function(err, result){
-
     var watchedMovieIds = result.rows.map(element => element.movie_id);
-    var filteredMovies = movies.filter(movieObj => {
-      // console.log(!watchedMovieIds.includes(movieObj.id))
-      return !watchedMovieIds.includes(movieObj.id)
-    });
-    console.log(filteredMovies)
-    return filteredMovies;
+    var filteredMovies = movies.filter(movieObj => !watchedMovieIds.includes(movieObj.id));
+    res.json(filteredMovies);
   })
-
-  // movies.shift();
-  // popFirst = movies[0].id;
-  // var popFirst = movies[0].id;
 }
-
-
 
 function tMDbQuery (params, query, callback) {
   if (query) {
