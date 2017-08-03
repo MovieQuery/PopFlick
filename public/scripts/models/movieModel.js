@@ -10,6 +10,7 @@ var app = app || {};
     var movieDataLoad = localStorage.getItem('movieData')
     if (selectedMovieLoad !== null){
       moviesModel.movieSelection = JSON.parse(selectedMovieLoad);
+      app.resultsView.displayMovie(app.moviesModel.movieSelection);
     }
     if (movieDataLoad !== null){
       moviesModel.movieData = JSON.parse(movieDataLoad);
