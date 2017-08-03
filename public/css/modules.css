@@ -34,6 +34,7 @@
 
 li.tab {
   font-size: 100%;
+  /*color: yellow;*/
 }
 li.tab:hover {
   font-size: 105%;

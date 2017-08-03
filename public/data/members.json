@@ -1,0 +1,23 @@
+
+[
+  {
+    "name": "David Broxton",
+    "imagePath": "image/david.jpg",
+    "bio": "Father of 2 kids. Wins the award for most modes of transit to commute to class (car, ferry, bus, foot)"
+  },
+  {
+    "name": "Daniel Muldrew",
+    "imagePath": "image/Daniel.jpg",
+    "bio": "Dan is an avid hackathon addict. In his free time he likes to create new music."
+  },
+  {
+    "name": "Tyler Walser",
+    "imagePath": "image/Tyler.jpg",
+    "bio": "Microsoft Apprentice through the Apprenti program. New to coding and having a blast!"
+  },
+  {
+    "name": "Quinn Liu",
+    "imagePath": "image/Quinn.jpg",
+    "bio": "an aspiring software developer who is a former biochemist working on renewable energy research under Department of Energy. She is currently learning front-end web development at Code Fellows."
+  }
+]

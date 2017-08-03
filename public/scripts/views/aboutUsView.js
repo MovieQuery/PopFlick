@@ -6,7 +6,7 @@ var app = app || {};
 
   var aboutUsView = {};
 
-
+  aboutUsView.Member.retrieveAllMember();
 
   module.aboutUsView = aboutUsView;
 
