@@ -3,24 +3,27 @@
 var app = app || {};
 
 (function(module){
-  // This is the title inputs from the user
-  module.movieInputs = [];
-  //This is whats returned from the server
-  module.movieData = [];
-  //this is the selected movie
-  module.movieSelection = {};
 
-  app.selectMovie = function () {
-    app.movieSelection = app.movieData.shift();
+  var moviesModel = {};
+  // This is the title inputs from the user
+  moviesModel.movieInputs = [];
+  //This is whats returned from the server
+  moviesModel.movieData = [];
+  //this is the selected movie
+  moviesModel.movieSelection = {};
+
+  moviesModel.selectMovie = function () {
+    moviesModel.movieSelection = moviesModel.movieData.shift();
   }
 
   $('#submitInput').on('click', function(event) {
     event.preventDefault();
     //inputed from user in form
-    module.movieInputs = $('.movieInput').val();
-    console.log(module.movieInputs);
+    app.moviesModel.movieInputs = $('.movieInput').val();
 
-    module.movieQuery(app.displayMovie); //Insert callback as parameter
+    console.log(app.moviesModel.movieInputs);
+
+    app.moviesModel.movieQuery(app.resultsView.displayMovie); //Insert callback as parameter
     app.resultsController.initResultsView();
 
   });
@@ -28,30 +31,31 @@ var app = app || {};
 
 
 // ajax call to send inputed titles to server
-  module.movieQuery = function (callback){
+  moviesModel.movieQuery = function (callback){
     $.ajax({
       // When multiple input forms are added, put in a .join(',') in the query string below:
-      url: `/search?titles=${module.movieInputs}`,
+      url: `/search?titles=${moviesModel.movieInputs}`,
       method: 'GET',
     })
     .then(function (data) {
       console.log(data);
-      module.movieData = data;
-      app.selectMovie();
-      callback(module.movieSelection);
+      moviesModel.movieData = data;
+      moviesModel.selectMovie();
+      callback(moviesModel.movieSelection);
     });
   }
 
-  module.watchedMovie = function () {
+  moviesModel.watchedMovie = function () {
     $.ajax({
       url:`/movies`,
       method: 'POST',
-      data: app.movieSelection
+      data: app.moviesModel.movieSelection
     })
     .then(function(data){
       console.log(data)
     })
   }
 
+  module.moviesModel = moviesModel;
 
 })(app);
