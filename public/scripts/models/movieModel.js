@@ -21,11 +21,9 @@ var app = app || {};
     //inputed from user in form
     app.moviesModel.movieInputs = $('.movieInput').val();
 
-    console.log(app.moviesModel.movieInputs);
-
-    app.moviesModel.movieQuery(app.resultsView.displayMovie); //Insert callback as parameter
+    app.moviesModel.movieQuery(app.resultsController.cycleResultsView); //Insert callback as parameter
     app.resultsController.initResultsView();
-
+    // app.resultsController.cycleResultsView();
   });
 
 
