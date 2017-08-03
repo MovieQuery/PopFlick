@@ -21,7 +21,7 @@
 
 .navigation:hover ul {
   display: block;
-  width: 15%;
+  width: 100px;
   color: white;
   background-color: black;
 }
@@ -43,4 +43,12 @@ li.tab:hover {
 .movieInput:focus::-webkit-input-placeholder
 {
     color: transparent;
+}
+
+#restart {
+  display: block;
+  clear: both;
+  margin: 40px auto;
+  width: 300px;
+  max-width: 100%;
 }
