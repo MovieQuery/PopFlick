@@ -8,12 +8,12 @@ var app = app || {};
     $('#results').empty();
     var button = $('<button>Watched!</button>').attr('id', 'watchedButton');
     $('#results').append(button);
-    app.selectMovie();
-    app.displayMovie(app.movieSelection);
+    app.moviesModel.selectMovie();
+    app.resultsView.displayMovie(app.moviesModel.movieSelection);
 
     $('#watchedButton').on('click', function(){
       event.preventDefault();
-      app.watchedMovie();
+      app.moviesModel.watchedMovie();
       resultsController.cycleResultsView();
     })
   }

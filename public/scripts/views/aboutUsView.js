@@ -2,7 +2,12 @@
 
 var app = app || {};
 
-(function() {
-  app.Member.retrieveAllMember();
-}
-)(app);
+(function(module) {
+
+  var aboutUsView = {};
+
+  aboutUsView.Member.retrieveAllMember();
+
+  module.aboutUsView = aboutUsView;
+
+})(app);
