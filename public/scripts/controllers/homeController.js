@@ -6,7 +6,7 @@ var app = app || {};
 
   homeController.initHomeView = function() {
     $('.tab-content').hide();
-    $('#results').empty();
+    // $('#results').empty();
     $('#home').show();
   }
 

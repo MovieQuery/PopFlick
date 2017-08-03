@@ -22,7 +22,7 @@ var app = app || {};
     app.moviesModel.movieInputs = $('.movieInput').val();
 
     app.moviesModel.movieQuery(app.resultsController.cycleResultsView);
-    app.resultsController.initResultsView();
+    // app.resultsController.initResultsView();
   });
 
 // ajax call to send inputed titles to server
@@ -35,6 +35,7 @@ var app = app || {};
       moviesModel.movieData = data;
       moviesModel.selectMovie();
       callback(moviesModel.movieSelection);
+      app.resultsController.initResultsView();
     });
   }
 
