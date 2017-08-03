@@ -2,6 +2,7 @@
 
 var app = app || {};
 
-(function(module) {
-
-})(app);
+(function() {
+  app.Member.retrieveAllMember();
+}
+)(app);
