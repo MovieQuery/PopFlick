@@ -3,29 +3,30 @@
 var app = app || {};
 
 (function(module){
-
-  var loadCurrentMovie = function() {
-    var selectedMovieLoad =  localStorage.getItem('selectedMovie');
-    if (selectedMovieLoad === null){
-      return null;
-    } else {
-      return (JSON.parse(selectedMovieLoad));
-    }
-  };
-
-  var saveMovie = function() {
-    moviesModel.movieSelection = JSON.parse(localStorage.getItem('selectedMovie'));
-    if(moviesModel.movieSelection === null) {
-      moviesModel.movieSelection = {};
-    }
-    localStorage.setItem('selectedMovie', JSON.stringify(moviesModel.movieSelection));
-  };
-
   var moviesModel = {};
+
+  moviesModel.loadMovie = function () {
+    var selectedMovieLoad =  localStorage.getItem('selectedMovie');
+    var movieDataLoad = localStorage.getItem('movieData')
+    if (selectedMovieLoad !== null){
+      moviesModel.movieSelection = JSON.parse(selectedMovieLoad);
+    }
+    if (movieDataLoad !== null){
+      moviesModel.movieData = JSON.parse(movieDataLoad);
+    }
+  };
+
+  moviesModel.saveMovie = function () {
+    localStorage.setItem('selectedMovie', JSON.stringify(moviesModel.movieSelection));
+    localStorage.setItem('movieData', JSON.stringify(moviesModel.movieData));
+  }
   // This is the title inputs from the user
   moviesModel.movieInputs = [];
   //This is whats returned from the server
   moviesModel.movieData = [];
+
+  moviesModel.loadMovie();
+
 
   moviesModel.selectMovie = function () {
     moviesModel.movieSelection = moviesModel.movieData.shift();
