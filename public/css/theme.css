@@ -6,7 +6,27 @@ main {
   background-color: black;
   color: white;
 }
+/*button design adapted from https://bttn.surge.sh/*/
+#watchedButton, #submitInput{
+  margin: 0;
+  padding: 0;
+  border-width: 0;
+  border-color: transparent;
+  background: transparent;
+  font-weight: 400;
+  position: relative;
+  font-size: 20px;
+  font-family: inherit;
+  padding: 5px 12px;
+  overflow: hidden;
+  border: none;
+  border-radius: 100px;
+  background: #fff;
+  color: Red;
+  -webkit-transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+  transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+}
 
-#watchedButton {
-  background: url(./images/popcorn-kernal.png) no-repeat;
+.navigation a {
+  color: white;
 }
