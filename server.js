@@ -46,7 +46,6 @@ app.get('/search', function(req, res){
 });
 
 app.post('/movies', function(req, res){
-  console.log(req.body)
   client.query(
     `INSERT INTO movies (movie_id, title, release_date, overview, poster_path) VALUES ($1, $2, $3, $4, $5);`
     , [

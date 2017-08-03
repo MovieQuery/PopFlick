@@ -21,22 +21,17 @@ var app = app || {};
     //inputed from user in form
     app.moviesModel.movieInputs = $('.movieInput').val();
 
-    app.moviesModel.movieQuery(app.resultsController.cycleResultsView); //Insert callback as parameter
+    app.moviesModel.movieQuery(app.resultsController.cycleResultsView);
     app.resultsController.initResultsView();
-    // app.resultsController.cycleResultsView();
   });
-
-
 
 // ajax call to send inputed titles to server
   moviesModel.movieQuery = function (callback){
     $.ajax({
-      // When multiple input forms are added, put in a .join(',') in the query string below:
       url: `/search?titles=${moviesModel.movieInputs}`,
       method: 'GET',
     })
     .then(function (data) {
-      console.log(data);
       moviesModel.movieData = data;
       moviesModel.selectMovie();
       callback(moviesModel.movieSelection);
@@ -48,9 +43,6 @@ var app = app || {};
       url:`/movies`,
       method: 'POST',
       data: app.moviesModel.movieSelection
-    })
-    .then(function(data){
-      console.log(data)
     })
   }
 
