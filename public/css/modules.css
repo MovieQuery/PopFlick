@@ -1,0 +1,40 @@
+.icon-menu {
+  font-size: 200%;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.navigation {
+  text-align: right;
+}
+
+.navigation ul {
+  display: none;
+  padding: 0;
+  list-style: none;
+  clear: both;
+  position: absolute;
+  top: 15px;
+  right: 10px;
+}
+
+.navigation:hover ul {
+  display: block;
+  width: 15%;
+  color: white;
+  background-color: black;
+}
+
+.navigation li {
+  font-size: 2em;
+  padding: .2em .2em;
+  border: solid 1px white;
+}
+
+li.tab {
+  font-size: 100%;
+}
+li.tab:hover {
+  font-size: 105%;
+}
