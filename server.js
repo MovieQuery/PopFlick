@@ -66,21 +66,42 @@ function recursiveListQuery(req, res, list, accumulator) {
 
   if (list.length === 0) {
 
-    var popDesc  = json.results.sort((movieA,movieB) => movieB.popularity-movieA.popularity);
+    var accumulatorValues = Object.values(accumulator);
 
-    checkAndRemoveWatched(req, res, popDesc);
+    var moviesArray = accumulatorValues.map(movieObjArray => {
+      var movieObj = movieObjArray[0];
+      var movieObj.recCount = movieObjArray.length;
+    })
+
+    var moviesArray  = moviesArray.results.sort((movieA,movieB) => movieB.popularity-movieA.popularity);
+    var moviesArray  = moviesArray.results.sort((movieA,movieB) => movieB.recCount-movieA.recCount);
+
+    if (moviesArray[0]) {
+      checkAndRemoveWatched(req, res, moviesArray);
+    } else {
+      res.json([]);
+    }
 
   } else {
 
-    tMDbQuery('search/movie', `query="${titles}&sort_by=popularity.desc"`, function(json){
+    var titles = list[0];
 
-      if (json.results[0]) {
+    tMDbQuery('search/movie', `query="${titles}&sort_by=popularity.desc"`, function(movieIdArray){
+
+      if (movieIdArray.results[0]) {
       // we picked the most popular movie that matched
-        var id = json.results[0].id;
+        var id = movieIdArray.results[0].id;
 
-        tMDbQuery(`movie/${id}/recommendations`, '', function(json){
+        tMDbQuery(`movie/${id}/recommendations`, '', function(movieArray){
 
           // do auccumulator stuff here
+          accumulator = movieArray.reduce((accumulator, movieObj) => {
+            if (!accumulator.hasOwnProperty(movieObj.id)){
+              accumulator[movieObj.id] = [];
+            }
+            return accumulator[movieObj.id].push(movieObj);
+          }
+          ,{})
 
           recursiveListQuery(req, res, list.shift(), accumulator);
 
