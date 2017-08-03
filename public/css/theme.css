@@ -8,7 +8,7 @@ main {
 }
 /*button design adapted from https://bttn.surge.sh/*/
 #watchedButton, #submitInput{
-  margin: 0;
+  margin: 4px;
   padding: 0;
   border-width: 0;
   border-color: transparent;
