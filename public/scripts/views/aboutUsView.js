@@ -1,8 +1,8 @@
 'use strict';
 
-// var app = app || {};
-//
-// (function(module) {
-//   app.Member.retrieveAllMember();
-// }
-// )(app);
+var app = app || {};
+
+(function() {
+  app.Member.retrieveAllMember();
+}
+)(app);
