@@ -2,13 +2,16 @@
 var app = app || {};
 
 (function(module) {
+
+  var membersModel = {};
+  membersModel.members = [];
+
   function Member (memberDataObj) {
     this.name = memberDataObj.name,
     this.imagePath = memberDataObj.imagePath,
     this.bio = memberDataObj.bio;
   }
 
-  var members = [];
 
   Member.prototype.toHtml = function() {
     var handlebarsTemplateString = $('#aboutTemplate').html();
@@ -17,44 +20,27 @@ var app = app || {};
     return html;
   };
 
-  Member.loadAllMember= function(memberData) {
-    members = memberData.map(function(element) {
+  membersModel.loadAllMember= function(memberData) {
+    membersModel.members = memberData.map(function(element) {
       return new Member(element);
     });
   };
 
-  // Member.loadAllMember= () => {
-  //    return memberData
-  //   .map(members => element) {
-  //     return new Member(element)
-  //   }
-  // }
-
-  // function(memberData) {
-  //   members => memberData.map(function(element) {
-  //     return new Member(element);
-  //   });
-  // };
-
-
-  Member.retrieveAllMember = function() {
-    // if (localStorage.rawData) {
-    //   Member.loadAll(JSON.parse(localStorage.getItem('rawdata')));
-    // } else {
-      var path = '../data/members.json';
-      $.get(path).then(function functionSuccess(data) {
-        var stringfiedData = JSON.stringify(data);
-        localStorage.setItem('rawdata', stringfiedData);
-        var parsedData = JSON.parse(stringfiedData)
-        Member.loadAllMember(parsedData);
-        members.forEach(function(member) {
-          $('#about').append(member.toHtml());
-        });
-      }, function functionError(err) {
-        console.err(err);
+  membersModel.retrieveAllMember = function() {
+    var path = '../data/members.json';
+    $.get(path).then(function functionSuccess(data) {
+      var stringfiedData = JSON.stringify(data);
+      localStorage.setItem('rawdata', stringfiedData);
+      var parsedData = JSON.parse(stringfiedData)
+      membersModel.loadAllMember(parsedData);
+      membersModel.members.forEach(function(member) {
+        $('#about').append(member.toHtml());
       });
+    }, function functionError(err) {
+      console.err(err);
+    });
 
   }
 
-  module.Member = Member;
+  module.membersModel = membersModel;
 })(app);
