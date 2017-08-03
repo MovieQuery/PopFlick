@@ -20,7 +20,7 @@
 }
 
 .navigation:hover ul {
-  display: inline;
+  display: block;
   width: 15%;
   color: white;
   background-color: black;
