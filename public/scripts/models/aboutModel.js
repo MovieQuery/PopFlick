@@ -23,10 +23,24 @@ var app = app || {};
     });
   };
 
+  // Member.loadAllMember= () => {
+  //    return memberData
+  //   .map(members => element) {
+  //     return new Member(element)
+  //   }
+  // }
+
+  // function(memberData) {
+  //   members => memberData.map(function(element) {
+  //     return new Member(element);
+  //   });
+  // };
+
+
   Member.retrieveAllMember = function() {
-    if (localStorage.rawData) {
-      Member.loadAll(JSON.parse(localStorage.getItem('rawdata')));
-    } else {
+    // if (localStorage.rawData) {
+    //   Member.loadAll(JSON.parse(localStorage.getItem('rawdata')));
+    // } else {
       var path = '../data/members.json';
       $.get(path).then(function functionSuccess(data) {
         var stringfiedData = JSON.stringify(data);
@@ -39,7 +53,7 @@ var app = app || {};
       }, function functionError(err) {
         console.err(err);
       });
-    }
+
   }
 
   module.Member = Member;
