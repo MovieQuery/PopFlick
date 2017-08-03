@@ -4,13 +4,28 @@ var app = app || {};
 
 (function(module){
 
+  var loadCurrentMovie = function() {
+    var selectedMovieLoad =  localStorage.getItem('selectedMovie');
+    if (selectedMovieLoad === null){
+      return null;
+    } else {
+      return (JSON.parse(selectedMovieLoad));
+    }
+  };
+
+  var saveMovie = function() {
+    moviesModel.movieSelection = JSON.parse(localStorage.getItem('selectedMovie'));
+    if(moviesModel.movieSelection === null) {
+      moviesModel.movieSelection = {};
+    }
+    localStorage.setItem('selectedMovie', JSON.stringify(moviesModel.movieSelection));
+  };
+
   var moviesModel = {};
   // This is the title inputs from the user
   moviesModel.movieInputs = [];
   //This is whats returned from the server
   moviesModel.movieData = [];
-  //this is the selected movie
-  moviesModel.movieSelection = {};
 
   moviesModel.selectMovie = function () {
     moviesModel.movieSelection = moviesModel.movieData.shift();
