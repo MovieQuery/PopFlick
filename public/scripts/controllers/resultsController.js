@@ -7,9 +7,9 @@ var app = app || {};
   resultsController.cycleResultsView = function() {
     $('#results').empty();
     var button = $('<button>Watched!</button>').attr('id', 'watchedButton');
-    $('#results').append(button);
     app.moviesModel.selectMovie();
     app.resultsView.displayMovie(app.moviesModel.movieSelection);
+    $('#results').append(button);
 
     $('#watchedButton').on('click', function(){
       event.preventDefault();
