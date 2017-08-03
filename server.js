@@ -62,6 +62,34 @@ app.post('/movies', function(req, res){
 
 })
 
+function recursiveListQuery(req, res, list, accumulator) {
+
+  if (list.length === 0) {
+
+    var popDesc  = json.results.sort((movieA,movieB) => movieB.popularity-movieA.popularity);
+
+    checkAndRemoveWatched(req, res, popDesc);
+
+  } else {
+
+    tMDbQuery('search/movie', `query="${titles}&sort_by=popularity.desc"`, function(json){
+
+      if (json.results[0]) {
+      // we picked the most popular movie that matched
+        var id = json.results[0].id;
+
+        tMDbQuery(`movie/${id}/recommendations`, '', function(json){
+
+          // do auccumulator stuff here
+
+          recursiveListQuery(req, res, list.shift(), accumulator);
+
+        });
+      }
+    });
+  }
+}
+
 function checkAndRemoveWatched(req, res, movies) {
   client.query(`SELECT movie_id FROM movies`, function(err, result){
     var watchedMovieIds = result.rows.map(element => element.movie_id);
