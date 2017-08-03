@@ -1,4 +1,13 @@
+* {
+  font-family: 'Chivo', sans-serif;
+}
+
 img {
   width: 500px;
   max-width: 100%;
+}
+
+.mainTitle {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 400%;
 }

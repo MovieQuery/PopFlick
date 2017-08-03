@@ -32,8 +32,10 @@ app.get('/search', function(req, res){
       var id = json.results[0].id;
 
       tMDbQuery(`movie/${id}/recommendations`, '', function(json){
+
         var popDesc  = json.results.sort((movieA,movieB) => movieB.popularity-movieA.popularity)
-        res.json(popDesc);
+        checkAndRemoveWatched(req, res, popDesc)
+
       });
 
     } else {
@@ -60,6 +62,14 @@ app.post('/movies', function(req, res){
   )
 
 })
+
+function checkAndRemoveWatched(req, res, movies) {
+  client.query(`SELECT movie_id FROM movies`, function(err, result){
+    var watchedMovieIds = result.rows.map(element => element.movie_id);
+    var filteredMovies = movies.filter(movieObj => !watchedMovieIds.includes(movieObj.id));
+    res.json(filteredMovies);
+  })
+}
 
 function tMDbQuery (params, query, callback) {
   if (query) {
