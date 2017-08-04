@@ -35,7 +35,7 @@ var app = app || {};
 
   moviesModel.loadMovie();
 
-  moviesModel.nextMovie = function () {
+  moviesModel.selectMovie = function () {
     if ($('input[name="orderRemoved"]:checked').val() === 'obscure'){
       moviesModel.movieSelection = moviesModel.movieData.pop();
     } else {
@@ -62,7 +62,7 @@ var app = app || {};
       if (moviesModel.movieData.length === 0) {
         app.errorController.displayError();
       } else {
-        moviesModel.nextMovie();
+        moviesModel.selectMovie();
         callback(moviesModel.movieSelection);
         app.resultsController.initResultsView();
       }
