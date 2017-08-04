@@ -19,7 +19,7 @@ var app = app || {};
   $('#submitInput').on('click', function(event) {
     event.preventDefault();
     //inputed from user in form
-    app.moviesModel.movieInputs = $('.movieInput').val();
+    app.moviesModel.movieInputs = $('.movieInput').map(function(){return $(this).val();}).get().join(',');
 
     app.moviesModel.movieQuery(app.resultsController.cycleResultsView);
   });
@@ -31,6 +31,7 @@ var app = app || {};
       method: 'GET',
     })
     .then(function (data) {
+      console.log(data);
       moviesModel.movieData = data;
       moviesModel.selectMovie();
       callback(moviesModel.movieSelection);

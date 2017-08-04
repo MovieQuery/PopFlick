@@ -25,24 +25,8 @@ app.get('/search', function(req, res){
 
   var titles = req.query.titles.split(',');
 
-  tMDbQuery('search/movie', `query="${titles}&sort_by=popularity.desc"`, function(json){
+  recursiveListQuery(req, res, titles, {})
 
-    if (json.results[0]) {
-    // we picked the most popular movie that matched
-      var id = json.results[0].id;
-
-      tMDbQuery(`movie/${id}/recommendations`, '', function(json){
-
-        var popDesc  = json.results.sort((movieA,movieB) => movieB.popularity-movieA.popularity)
-        checkAndRemoveWatched(req, res, popDesc)
-
-      });
-
-    } else {
-      res.json([]);
-    }
-
-  });
 });
 
 app.post('/movies', function(req, res){
@@ -62,13 +46,13 @@ app.post('/movies', function(req, res){
 
 })
 
-function recursiveListQuery(req, res, list, accumulator) {
+function recursiveListQuery(req, res, list, results) {
 
   if (list.length === 0) {
 
-    var accumulatorValues = Object.values(accumulator);
+    var resultsValues = Object.values(results);
 
-    var moviesArray = accumulatorValues.map(movieObjArray => {
+    var moviesArray = resultsValues.map(movieObjArray => {
       var movieObj = movieObjArray[0];
       movieObj.recCount = movieObjArray.length;
     })
@@ -87,21 +71,24 @@ function recursiveListQuery(req, res, list, accumulator) {
     var titles = list[0];
 
     tMDbQuery('search/movie', `query="${titles}&sort_by=popularity.desc"`, function(movieIdArray){
-
+      console.log(results)
       if (movieIdArray.results[0]) {
       // we picked the most popular movie that matched
         var id = movieIdArray.results[0].id;
 
+        console.log(id)
+
         tMDbQuery(`movie/${id}/recommendations`, '', function(movieArray){
 
-          // do auccumulator stuff here
-          accumulator = movieArray.reduce((accumulator, movieObj) => {
-            if (!accumulator.hasOwnProperty(movieObj.id)){
-              accumulator[movieObj.id] = [];
+          var accumulator = movieArray.results.reduce((obj, movieObj) => {
+            if (!obj.hasOwnProperty(movieObj.id)){
+              obj[movieObj.id] = [];
             }
-            return accumulator[movieObj.id].push(movieObj);
+            return obj[movieObj.id].push(movieObj);
           }
-          ,{})
+          , results)
+
+          console.log(accumulator)
 
           recursiveListQuery(req, res, list.shift(), accumulator);
 
