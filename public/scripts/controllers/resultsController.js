@@ -16,8 +16,12 @@ var app = app || {};
     $('#watchedButton').on('click', function(){
       event.preventDefault();
       app.moviesModel.watchedMovie();
-      app.moviesModel.selectMovie();
-      resultsController.cycleResultsView();
+      if (app.moviesModel.movieData.length === 0) {
+        app.errorController.displayError();
+      } else {
+        app.moviesModel.selectMovie();
+        resultsController.cycleResultsView();
+      }
     })
   }
 

@@ -57,6 +57,17 @@
     width: 20%;
   }
 
+  #errorSection {
+    width: 100%;
+  }
+
+  #errorSection > h1 {
+    font-size: 1.5em;
+    margin: 45px auto 0 auto;
+    width: 70%;
+
+  }
+
   #results > img {
     width: 20%;
     padding: 5px;

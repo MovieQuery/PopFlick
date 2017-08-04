@@ -32,6 +32,11 @@ li.tab {
   margin-left: 2%;
 }
 
+#errorSection > h1 {
+  font-size: 1em;
+  margin-top: 50px;
+}
+
 #results > img {
   width: 50%;
   padding: 1%;
