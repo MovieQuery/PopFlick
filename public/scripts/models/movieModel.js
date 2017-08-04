@@ -35,9 +35,12 @@ var app = app || {};
 
   moviesModel.loadMovie();
 
-
   moviesModel.selectMovie = function () {
-    moviesModel.movieSelection = moviesModel.movieData.shift();
+    if ($('input[name="orderRemoved"]:checked').val() === 'obscure'){
+      moviesModel.movieSelection = moviesModel.movieData.pop();
+    } else {
+      moviesModel.movieSelection = moviesModel.movieData.shift();
+    }
   }
 
   $('#submitInput').on('click', function(event) {

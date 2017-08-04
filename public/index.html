@@ -42,8 +42,18 @@
         <img id="popflicklogo" src="image/popflicklogo.png" alt="PopFlick Popcorn Logo">
         <h3 id="mainText">Enter a favorite movie below and we'll let you know which one you should watch next!</h3>
         <form>
-          <input class="movieInput" type="text" name="" placeholder="Enter a Movie Title">
-          <input id="submitInput" type="submit" name="" value="Submit">
+          <div>
+            <input class="movieInput" type="text" name="" placeholder="Enter a Movie Title">
+            <input id="submitInput" type="submit" name="" value="Submit">
+          </div>
+          <span class="orderRemoved">
+              <label for="orderRemoved">
+                <input type="radio" name="orderRemoved" value="popular" checked="checked">Popular
+              </label>
+              <label for="orderRemoved">
+                <input type="radio" name="orderRemoved" value="obscure">Obscure
+              </label>
+          </span>
         </form>
       </section>
       <section id="results" class="tab-content">
