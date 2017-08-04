@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-    <link href="https://fonts.googleapis.com/css?family=Chivo:900|Luckiest+Guy" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Chivo:900|Luckiest+Guy|Open+Sans" rel="stylesheet">
     <link rel="stylesheet" href="css/icons.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/layout.css">
@@ -12,14 +12,18 @@
     <link rel="stylesheet" href="css/theme.css">
     <title>Pop Flick!</title>
     <script type="text/x-handlebars-template" id="resultsTemplate">
-      <h1 id="title">{{title}}</h1>
       <img src="https://image.tmdb.org/t/p/w500{{poster_path}}">
+      <h1 id="title">{{title}}</h1>
       <p>{{overview}}</p>
     </script>
     <script type="text/x-handlebars-template" id="aboutTemplate">
-      <img class= "bioImages" src="{{imagePath}}">
-      <h1 id="name">{{name}}</h1>
-      <p class= "bioParagraph">{{bio}}</p>
+      <div class="bio">
+        <img class= "bioImages" src="{{imagePath}}">
+        <div class="bioText">
+          <h1 id="name">{{name}}</h1>
+          <p class= "bioParagraph">{{bio}}</p>
+        </div>
+      </div>
     </script>
   </head>
   <body>
@@ -36,6 +40,7 @@
     <main class="mainArea">
       <section id="home" class="tab-content">
         <img id="popflicklogo" src="image/popflicklogo.png" alt="PopFlick Popcorn Logo">
+        <h3 id="mainText">Enter a favorite movie below and we'll let you know which one you should watch next!</h3>
         <form>
           <input class="movieInput" type="text" name="" placeholder="Enter a Movie Title">
           <input id="submitInput" type="submit" name="" value="Submit">

@@ -2,16 +2,22 @@
   text-align: center;
 }
 
-.mainTitle {
-  margin: 0%;
+.bio {
+  clear: both;
+  display: block;
+  margin: 30px auto 0 auto;
+  width: 75%;
 }
 
-#name, .bioImages, .bioParagraph {
-  text-align: left;
-  float: left;
+.bio > img {
+  width: 70%;
 }
 
-.bioImages {
-  width: 40%;
-  clear: left;
+.bio > h1 {
+  margin: 15px auto;
+  font-size: 1.4em;
+}
+
+.bio > p:last-of-type {
+  margin-bottom: 40px;
 }
