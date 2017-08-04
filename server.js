@@ -99,17 +99,6 @@ function loadDB() {
   )
   .then(console.log('movie table created!'))
   .catch(console.error);
-
-  // client.query(`
-  //   CREATE TABLE IF NOT EXISTS
-  //   users (
-  //     user_id SERIAL PRIMARY KEY,
-  //     name VARCHAR(255) UNIQUE NOT NULL,
-  //     movie_id INTEGER NOT NULL REFERENCES movies(movie_id)
-  //   );`
-  // )
-  // .then(console.log('user table created!'))
-  // .catch(console.error);
 }
 
 loadDB();
