@@ -22,27 +22,14 @@
     position: relative;
   }
 
-  .navigation:hover ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    text-align: center;
-    width: 100%;
-    position: relative;
-    background-color: red;
-  }
-
   li.tab {
     font-size: 200%;
-  }
-  li.tab:hover {
-    font-size: 205%;
-    width: auto;
   }
 
   .navigation ul li {
     display: inline;
     border: none;
+    padding: 10px 0px;
   }
 
  .articleLayout {
@@ -58,4 +45,37 @@
     color: black
   }
 
+  #popflicklogo {
+    width: 50%;
+  }
+
+  .movieInput {
+    height: 30px;
+    width: 20%;
+  }
+}
+
+@media (max-width: 799px) {
+  .navigation:hover ul {
+  display: block;
+  width: 40%;
+  color: white;
+  background-color: black;
+  }
+
+  .navigation ul {
+    display: none;
+    padding: 0;
+    list-style: none;
+    clear: both;
+    position: absolute;
+    top: 15px;
+    left: 10px;
+  }
+
+  .navigation li {
+    font-size: 1em;
+    padding: 1em 1em;
+    border: solid 1px white;
+  }
 }
