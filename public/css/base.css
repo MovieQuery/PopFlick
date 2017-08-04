@@ -1,14 +1,9 @@
 * {
-  font-family: 'Chivo', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   text-decoration: none;
   margin: 0;
 }
 
 img {
   max-width: 100%;
-}
-
-.mainTitle {
-  font-family: 'Luckiest Guy', cursive;
-  font-size: 400%;
 }

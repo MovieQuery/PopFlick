@@ -1,17 +1,11 @@
-header {
-  background-color: red;
-}
-
 body, main {
   background-color: black;
   color: white;
 }
 /*button design adapted from https://bttn.surge.sh/*/
-#watchedButton, #submitInput{
+#watchedButton, #submitInput, #restart {
   padding: 0;
   border-width: 0;
-  border-color: transparent;
-  background: transparent;
   font-weight: 400;
   position: relative;
   font-size: 20px;
@@ -22,8 +16,6 @@ body, main {
   border-radius: 100px;
   background: #fff;
   color: Red;
-  -webkit-transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
-  transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
 }
 
 .navigation a {

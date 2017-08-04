@@ -1,7 +1,8 @@
 @media (min-width: 800px) {
 
   body{
-    overflow-x: hidden;
+    display: block;
+    width: 100%;
   }
 
   .icon-menu {
@@ -9,8 +10,10 @@
   }
 
   .navigation {
-    clear: both;
+    display: block;
     background-color: red;
+    margin: 15px auto 0 auto;
+    width: 95%;
   }
 
   .navigation ul {
@@ -52,6 +55,43 @@
   .movieInput {
     height: 30px;
     width: 20%;
+  }
+
+  #results > img {
+    width: 20%;
+    padding: 5px;
+    border: 5px solid white;
+    margin-bottom: 30px;
+  }
+
+  #results > h1 {
+    margin-bottom: 20px;
+  }
+
+  #results > p {
+    width: 60%;
+    margin: 0 auto 20px auto;
+  }
+
+  .bio {
+    clear: both;
+    display: block;
+    margin: 30px auto 0 auto;
+    width: 100%;
+  }
+
+  .bio > img {
+    display: inline-block;
+    width: 25%;
+    margin-top: 35px;
+  }
+
+  .bioText {
+    position: relative;
+    display: inline-block;
+    margin-left: 10%;
+    width: 50%;
+    top: -125px;
   }
 }
 
