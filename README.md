@@ -5,11 +5,11 @@ A very decisive Movie Search Tool. Leave the thinking to our app!
 # Project Team Members
 
 * David Broxton -  Father of 2 kids. Wins the award for most modes of transit to commute to class (car, ferry, bus, foot)
-* Dan Muldrew -  Dan is an avid hackathon addict. In his free time he likes to create new music. 
+* Dan Muldrew -  Dan is an avid hackathon addict. In his free time he likes to create new music.
 * Tyler Walser - Microsoft Apprentice through the Apprenti program. New to coding and having a blast!
-* Quinn Liu - an aspiring software developer who is a former biochemist working on renewable energy research under Department of Energy. She is currently learning front-end web development at Code Fellows.
+* Quinn Liu - An aspiring software developer who is a former biochemist working on renewable energy research under Department of Energy. She is currently learning front-end web development at Code Fellows.
 
-# Our Problem Domain: 
+# Our Problem Domain:
 
 What is the problem we are solving?
 
@@ -17,7 +17,7 @@ With a lot of movies available out there to watch, it is hard to know which movi
 
 What will be our solution to the problem?
 
-What if there was a way to narrow down all of the movies out there and have a movie selection done for you? We would like to create an application in which it takes in a few of your favorite movies or tv shows compares data between them, and finds the highest comparison within a movie database. The application would finally return a single recommendation for you in which you can comfortably decide to watch. 
+What if there was a way to narrow down all of the movies out there and have a movie selection done for you? We would like to create an application in which it takes in a few of your favorite movies or tv shows compares data between them, and finds the highest comparison within a movie database. The application would finally return a single recommendation for you in which you can comfortably decide to watch.
 
 What are the benefits to our solution?
 
