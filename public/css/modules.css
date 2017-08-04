@@ -13,7 +13,7 @@ li.tab {
   font-size: 100%;
 }
 
-.movieInput:focus::-webkit-input-placeholder
+.movieInput:hover::-webkit-input-placeholder
 {
     color: transparent;
 }
