@@ -25,4 +25,4 @@ There are services out there that perform this type of function, however, most o
 
 # How our project is put together:
 
-The PopFlick Project uses jQuery and Handlebars (HTML templating) to create a single-page application on the client side, along with a mobile-first, responsive UI.  A Node.js server interacts with the Movie Database API to retrieve and parse movie data, and also acts as an API to the PostgreSQL database. Deployed via Heroku, and planned/executed using Agile methodologies during a weeklong sprint.
+The PopFlick Project uses jQuery and Handlebars (HTML templating) to create a single-page application on the client side with a mobile-first, responsive UI. A Node.js server interacts with the Movie Database API to retrieve and parse movie data, and a PostgreSQL database is used remove previously watched movie from consideration. Deployed via Heroku, and planned/executed using Agile methodologies during a weeklong sprint.
