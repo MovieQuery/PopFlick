@@ -6,3 +6,13 @@
 .mainTitle {
   margin: 0%;
 }
+
+#name, .bioImages, .bioParagraph {
+  text-align: left;
+  float: left;
+}
+
+.bioImages {
+  width: 40%;
+  clear: left;
+}
