@@ -1,10 +1,10 @@
 * {
   font-family: 'Chivo', sans-serif;
   text-decoration: none;
+  margin: 0;
 }
 
 img {
-  /*width: 500px;*/
   max-width: 100%;
 }
 

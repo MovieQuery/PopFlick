@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" >
-    <link rel="stylesheet" type="text/css"  href="vendor/normalize.css">
     <link href="https://fonts.googleapis.com/css?family=Chivo:900|Luckiest+Guy" rel="stylesheet">
     <link rel="stylesheet" href="css/icons.css">
     <link rel="stylesheet" href="css/base.css">
@@ -20,14 +19,11 @@
     <script type="text/x-handlebars-template" id="aboutTemplate">
       <h1 id="name">{{name}}</h1>
       <img src="{{imagePath}}">
-      <p>{{bio}}</p>
+      <p id="overview">{{bio}}</p>
     </script>
   </head>
   <body>
     <header>
-      <h1 class ="mainTitle">
-        Pop Flick!
-      </h1>
       <nav class="navigation">
         <i class="icon-menu" onclick=""></i>
         <ul>
@@ -39,7 +35,7 @@
     </header>
     <main class="mainArea">
       <section id="home" class="tab-content">
-        <img src="image/popflicklogo.png" alt="PopFlick Popcorn Logo">
+        <img id="popflicklogo" src="image/popflicklogo.png" alt="PopFlick Popcorn Logo">
         <form>
           <input class="movieInput" type="text" name="" placeholder="Enter a Movie Title">
           <input id="submitInput" type="submit" name="" value="Submit">
