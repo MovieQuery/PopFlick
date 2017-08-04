@@ -35,9 +35,12 @@ var app = app || {};
 
   moviesModel.loadMovie();
 
-
-  moviesModel.selectMovie = function () {
-    moviesModel.movieSelection = moviesModel.movieData.shift();
+  moviesModel.nextMovie = function () {
+    if ($('input[name="orderRemoved"]:checked').val() === 'obscure'){
+      moviesModel.movieSelection = moviesModel.movieData.pop();
+    } else {
+      moviesModel.movieSelection = moviesModel.movieData.shift();
+    }
   }
 
   $('#submitInput').on('click', function(event) {
@@ -59,7 +62,7 @@ var app = app || {};
       if (moviesModel.movieData.length === 0) {
         app.errorController.displayError();
       } else {
-        moviesModel.selectMovie();
+        moviesModel.nextMovie();
         callback(moviesModel.movieSelection);
         app.resultsController.initResultsView();
       }

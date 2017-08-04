@@ -16,7 +16,7 @@ var app = app || {};
     $('#watchedButton').on('click', function(){
       event.preventDefault();
       app.moviesModel.watchedMovie();
-      app.moviesModel.selectMovie();
+      app.moviesModel.nextMovie();
       resultsController.cycleResultsView();
     })
   }
